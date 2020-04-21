@@ -28,10 +28,7 @@ const routes: Routes = [
     path: 'course-edit/:id',
     component: CourseEditComponent
   },
-  // {
-  //   path: '',
-  //   redirectTo: '/products'
-  // }
+
 ];
 
 @NgModule({
