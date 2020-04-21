@@ -10,7 +10,7 @@ import { Course } from '../model/course';
 })
 export class CourseDetailComponent implements OnInit {
 
-  course: Course = { _id: 0, name: '', price: null };
+  course: Course = { _id: 0, name: '', price: null, description: '' };
   isLoadingResults = true;
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
 
