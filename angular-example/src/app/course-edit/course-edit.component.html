@@ -3,28 +3,28 @@
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
   <div class="button-row">
-    <a mat-flat-button color="primary" (click)="productDetails()">
+    <a mat-flat-button color="primary" (click)="courseDetails()">
       <mat-icon>info</mat-icon>
     </a>
   </div>
   <mat-card class="example-card">
-    <form [formGroup]="productForm" (ngSubmit)="onFormSubmit(productForm.value)">
+    <form [formGroup]="courseForm" (ngSubmit)="onFormSubmit(courseForm.value)">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Product Name" formControlName="name">
+        <input matInput placeholder="Course Name" formControlName="name">
         <mat-error>
-          <span *ngIf="!productForm.get('name').valid && productForm.get('name').touched">Please enter Product
+          <span *ngIf="!courseForm.get('name').valid && courseForm.get('name').touched">Please enter Course
             Name</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Product Price" formControlName="price">
+        <input matInput placeholder="Course Price" formControlName="price">
         <mat-error>
-          <span *ngIf="!productForm.get('price').valid && productForm.get('price').touched">Please enter Product
+          <span *ngIf="!courseForm.get('price').valid && courseForm.get('price').touched">Please enter Course
             Price</span>
         </mat-error>
       </mat-form-field>
       <div class="button-row">
-        <button type="submit" [disabled]="!productForm.valid" mat-flat-button color="primary">
+        <button type="submit" [disabled]="!courseForm.valid" mat-flat-button color="primary">
           <mat-icon>save</mat-icon>
         </button>
       </div>

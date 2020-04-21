@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { Product } from '../model/product';
+import { Course } from '../model/course';
 
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-courses',
+  templateUrl: './courses.component.html',
+  styleUrls: ['./courses.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class CoursesComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'price'];
-  data: Product[] = [];
+  data: Course[] = [];
   isLoadingResults = true;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getProducts()
+    this.api.getCourses()
       .subscribe(res => {
         this.data = res;
         console.log(this.data);

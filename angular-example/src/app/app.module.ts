@@ -21,10 +21,10 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductsComponent } from './products/products.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductAddComponent } from './product-add/product-add.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { CourseAddComponent } from './course-add/course-add.component';
+import { CourseEditComponent } from './course-edit/course-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -32,10 +32,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     AboutComponent,
-    ProductsComponent,
-    ProductDetailComponent,
-    ProductAddComponent,
-    ProductEditComponent
+    CoursesComponent,
+    CourseDetailComponent,
+    CourseAddComponent,
+    CourseEditComponent
   ],
   imports: [
     BrowserModule,

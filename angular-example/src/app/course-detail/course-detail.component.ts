@@ -1,38 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
-import { Product } from '../model/product';
+import { Course } from '../model/course';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  selector: 'app-course-detail',
+  templateUrl: './course-detail.component.html',
+  styleUrls: ['./course-detail.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class CourseDetailComponent implements OnInit {
 
-  product: Product = { _id: 0, name: '', price: null };
+  course: Course = { _id: 0, name: '', price: null };
   isLoadingResults = true;
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) { }
 
   ngOnInit() {
-    this.getProductDetails(this.route.snapshot.params['id']);
+    this.getCourseDetails(this.route.snapshot.params['id']);
   }
 
-  getProductDetails(id) {
-    this.api.getProduct(id)
+  getCourseDetails(id) {
+    this.api.getCourse(id)
       .subscribe(data => {
-        this.product = data;
-        console.log(this.product);
+        this.course = data;
+        console.log(this.course);
         this.isLoadingResults = false;
       });
   }
 
-  deleteProduct(id) {
+  deleteCourse(id) {
     this.isLoadingResults = true;
-    this.api.deleteProduct(id)
+    this.api.deleteCourse(id)
       .subscribe(res => {
         this.isLoadingResults = false;
-        this.router.navigate(['/products']);
+        this.router.navigate(['/courses']);
       }, (err) => {
         console.log(err);
         this.isLoadingResults = false;

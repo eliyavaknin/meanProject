@@ -4,13 +4,13 @@ import { ApiService } from '../services/api.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-product-add',
-  templateUrl: './product-add.component.html',
-  styleUrls: ['./product-add.component.css']
+  selector: 'app-course-add',
+  templateUrl: './course-add.component.html',
+  styleUrls: ['./course-add.component.css']
 })
-export class ProductAddComponent implements OnInit {
+export class CourseAddComponent implements OnInit {
 
-  productForm: FormGroup;
+  courseForm: FormGroup;
   name: string = '';
   price: number = null;
   isLoadingResults = false;
@@ -18,18 +18,18 @@ export class ProductAddComponent implements OnInit {
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.productForm = this.formBuilder.group({
+    this.courseForm = this.formBuilder.group({
       'name': [null, Validators.required],
       'price': [null, Validators.required],
     });
   }
   onFormSubmit(form: NgForm) {
     this.isLoadingResults = true;
-    this.api.addProduct(form)
+    this.api.addCourse(form)
       .subscribe(res => {
         let id = res['_id'];
         this.isLoadingResults = false;
-        this.router.navigate(['/product-details', id]);
+        this.router.navigate(['/course-details', id]);
       }, (err) => {
         console.log(err);
         this.isLoadingResults = false;

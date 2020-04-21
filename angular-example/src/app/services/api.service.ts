@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Product } from '.././model/product';
+import { Course } from '.././model/course';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
 };
-const apiUrl = "http://localhost:1234/products";
+const apiUrl = "http://localhost:1234/courses";
 
 @Injectable({
   providedIn: 'root'
@@ -27,43 +27,43 @@ export class ApiService {
     };
   }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(apiUrl)
+  getCourses(): Observable<Course[]> {
+    return this.http.get<Course[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('fetched products')),
-        catchError(this.handleError('getProducts', []))
+        tap(heroes => console.log('fetched courses')),
+        catchError(this.handleError('getCourses', []))
       );
   }
 
-  getProduct(id: number): Observable<Product> {
+  getCourse(id: number): Observable<Course> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<Product>(url).pipe(
-      tap(_ => console.log(`fetched product id=${id}`)),
-      catchError(this.handleError<Product>(`getProduct id=${id}`))
+    return this.http.get<Course>(url).pipe(
+      tap(_ => console.log(`fetched course id=${id}`)),
+      catchError(this.handleError<Course>(`getCourse id=${id}`))
     );
   }
 
-  addProduct(product): Observable<Product> {
-    return this.http.post<Product>(apiUrl, product, httpOptions).pipe(
-      tap((product: Product) => console.log(`added product w/ id=${product._id}`)),
-      catchError(this.handleError<Product>('addProduct'))
+  addCourse(course): Observable<Course> {
+    return this.http.post<Course>(apiUrl, course, httpOptions).pipe(
+      tap((course: Course) => console.log(`added Course w/ id=${course._id}`)),
+      catchError(this.handleError<Course>('addCourse'))
     );
   }
 
-  updateProduct(id, product): Observable<any> {
+  updateCourse(id, course): Observable<any> {
     const url = `${apiUrl}/${id}`;
-    return this.http.put(url, product, httpOptions).pipe(
-      tap(_ => console.log(`updated product id=${id}`)),
-      catchError(this.handleError<any>('updateProduct'))
+    return this.http.put(url, course, httpOptions).pipe(
+      tap(_ => console.log(`updated Course id=${id}`)),
+      catchError(this.handleError<any>('updateCourse'))
     );
   }
 
-  deleteProduct(id): Observable<Product> {
+  deleteCourse(id): Observable<Course> {
     const url = `${apiUrl}/${id}`;
 
-    return this.http.delete<Product>(url, httpOptions).pipe(
-      tap(_ => console.log(`deleted product id=${id}`)),
-      catchError(this.handleError<Product>('deleteProduct'))
+    return this.http.delete<Course>(url, httpOptions).pipe(
+      tap(_ => console.log(`deleted Course id=${id}`)),
+      catchError(this.handleError<Course>('deleteCourse'))
     );
   }
 

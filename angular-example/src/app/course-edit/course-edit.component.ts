@@ -4,13 +4,13 @@ import { ApiService } from '../services/api.service';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-product-edit',
-  templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  selector: 'app-course-edit',
+  templateUrl: './course-edit.component.html',
+  styleUrls: ['./course-edit.component.css']
 })
-export class ProductEditComponent implements OnInit {
+export class CourseEditComponent implements OnInit {
 
-  productForm: FormGroup;
+  courseForm: FormGroup;
   _id: number = 0;
   name: string = '';
   price: number = null;
@@ -19,17 +19,17 @@ export class ProductEditComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.getProduct(this.route.snapshot.params['id']);
-    this.productForm = this.formBuilder.group({
+    this.getCourse(this.route.snapshot.params['id']);
+    this.courseForm = this.formBuilder.group({
       'name': [null, Validators.required],
       'price': [null, Validators.required]
     });
   }
 
-  getProduct(id) {
-    this.api.getProduct(id).subscribe(data => {
+  getCourse(id) {
+    this.api.getCourse(id).subscribe(data => {
       this._id = data._id;
-      this.productForm.setValue({
+      this.courseForm.setValue({
         name: data.name,
         price: data.price
       });
@@ -38,11 +38,11 @@ export class ProductEditComponent implements OnInit {
 
   onFormSubmit(form: NgForm) {
     this.isLoadingResults = true;
-    this.api.updateProduct(this._id, form)
+    this.api.updateCourse(this._id, form)
       .subscribe(res => {
         let id = res['_id'];
         this.isLoadingResults = false;
-        this.router.navigate(['/product-details', id]);
+        this.router.navigate(['/course-details', id]);
       }, (err) => {
         console.log(err);
         this.isLoadingResults = false;
@@ -50,8 +50,8 @@ export class ProductEditComponent implements OnInit {
       );
   }
 
-  productDetails() {
-    this.router.navigate(['/product-details', this._id]);
+  courseDetails() {
+    this.router.navigate(['/course-details', this._id]);
   }
 
 }

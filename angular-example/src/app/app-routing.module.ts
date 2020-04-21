@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductAddComponent } from './product-add/product-add.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { CourseAddComponent } from './course-add/course-add.component';
+import { CourseEditComponent } from './course-edit/course-edit.component';
 
 
 const routes: Routes = [
@@ -13,20 +13,20 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   {
-    path: 'products',
-    component: ProductsComponent
+    path: 'courses',
+    component: CoursesComponent
   },
   {
-    path: 'product-details/:id',
-    component: ProductDetailComponent
+    path: 'course-details/:id',
+    component: CourseDetailComponent
   },
   {
-    path: 'product-add',
-    component: ProductAddComponent
+    path: 'course-add',
+    component: CourseAddComponent
   },
   {
-    path: 'product-edit/:id',
-    component: ProductEditComponent
+    path: 'course-edit/:id',
+    component: CourseEditComponent
   },
   // {
   //   path: '',
