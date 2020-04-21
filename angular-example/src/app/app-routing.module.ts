@@ -6,6 +6,9 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { CourseAddComponent } from './course-add/course-add.component';
 import { CourseEditComponent } from './course-edit/course-edit.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
+import { LessonAddComponent } from './lesson-add/lesson-add.component';
+import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
 
 
 const routes: Routes = [
@@ -27,6 +30,18 @@ const routes: Routes = [
   {
     path: 'course-edit/:id',
     component: CourseEditComponent
+  },
+  {
+    path: 'lesson-details/:id',
+    component: LessonDetailComponent
+  },
+  {
+    path: 'lesson-add',
+    component: LessonAddComponent
+  },
+  {
+    path: 'lesson-edit/:id',
+    component: LessonEditComponent
   },
 
 ];

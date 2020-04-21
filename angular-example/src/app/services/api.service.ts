@@ -3,12 +3,13 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Course } from '.././model/course';
+import { Lesson } from '.././model/lesson';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
 };
-const apiUrl = "http://localhost:1234/courses";
-
+const coursesApiUrl = "http://localhost:1234/courses";
+const lessonsApiUrl = "http://localhost:1234/lessons";
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +29,7 @@ export class ApiService {
   }
 
   getCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>(apiUrl)
+    return this.http.get<Course[]>(coursesApiUrl)
       .pipe(
         tap(heroes => console.log('fetched courses')),
         catchError(this.handleError('getCourses', []))
@@ -36,7 +37,7 @@ export class ApiService {
   }
 
   getCourse(id: number): Observable<Course> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${coursesApiUrl}/${id}`;
     return this.http.get<Course>(url).pipe(
       tap(_ => console.log(`fetched course id=${id}`)),
       catchError(this.handleError<Course>(`getCourse id=${id}`))
@@ -44,14 +45,14 @@ export class ApiService {
   }
 
   addCourse(course): Observable<Course> {
-    return this.http.post<Course>(apiUrl, course, httpOptions).pipe(
+    return this.http.post<Course>(coursesApiUrl, course, httpOptions).pipe(
       tap((course: Course) => console.log(`added Course w/ id=${course._id}`)),
       catchError(this.handleError<Course>('addCourse'))
     );
   }
 
   updateCourse(id, course): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${coursesApiUrl}/${id}`;
     return this.http.put(url, course, httpOptions).pipe(
       tap(_ => console.log(`updated Course id=${id}`)),
       catchError(this.handleError<any>('updateCourse'))
@@ -59,7 +60,7 @@ export class ApiService {
   }
 
   deleteCourse(id): Observable<Course> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${coursesApiUrl}/${id}`;
 
     return this.http.delete<Course>(url, httpOptions).pipe(
       tap(_ => console.log(`deleted Course id=${id}`)),
@@ -67,4 +68,32 @@ export class ApiService {
     );
   }
 
+  addLesson(lesson): Observable<Lesson> {
+    return this.http.post<Lesson>(lessonsApiUrl, lesson, httpOptions).pipe(
+      tap((lesson: Lesson) => console.log(`added Lesson w/ id=${lesson._id}`)),
+      catchError(this.handleError<Lesson>('addLesson'))
+    );
+  }
+  getLesson(id: number): Observable<Lesson> {
+    const url = `${lessonsApiUrl}/${id}`;
+    return this.http.get<Lesson>(url).pipe(
+      tap(_ => console.log(`fetched lesson id=${id}`)),
+      catchError(this.handleError<Lesson>(`getLesson id=${id}`))
+    );
+  }
+  deleteLesson(id): Observable<Lesson> {
+    const url = `${lessonsApiUrl}/${id}`;
+
+    return this.http.delete<Lesson>(url, httpOptions).pipe(
+      tap(_ => console.log(`deleted Lesson id=${id}`)),
+      catchError(this.handleError<Lesson>('deleteLesson'))
+    );
+  }
+  updateLesson(id, lesson): Observable<any> {
+    const url = `${lessonsApiUrl}/${id}`;
+    return this.http.put(url, lesson, httpOptions).pipe(
+      tap(_ => console.log(`updated Lesson id=${id}`)),
+      catchError(this.handleError<any>('updateLesson'))
+    );
+  }
 }

@@ -26,6 +26,9 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { CourseAddComponent } from './course-add/course-add.component';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LessonAddComponent } from './lesson-add/lesson-add.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
+import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoursesComponent,
     CourseDetailComponent,
     CourseAddComponent,
-    CourseEditComponent
+    CourseEditComponent,
+    LessonAddComponent,
+    LessonDetailComponent,
+    LessonEditComponent
   ],
   imports: [
     BrowserModule,
