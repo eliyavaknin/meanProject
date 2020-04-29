@@ -29,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LessonAddComponent } from './lesson-add/lesson-add.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
+import { WebSocketModule } from './web-socket/web.socket.module';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    WebSocketModule
   ],
   providers: [],
   bootstrap: [AppComponent]

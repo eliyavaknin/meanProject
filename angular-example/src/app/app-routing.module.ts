@@ -9,6 +9,7 @@ import { CourseEditComponent } from './course-edit/course-edit.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonAddComponent } from './lesson-add/lesson-add.component';
 import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
+import { ChatComponent } from './web-socket/socket-io/chat.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,11 @@ const routes: Routes = [
     path: 'lesson-edit/:id',
     component: LessonEditComponent
   },
+  { path: 'chat', component: ChatComponent }
+
+
+
+
 
 ];
 

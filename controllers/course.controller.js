@@ -22,6 +22,7 @@ exports.create = function (req, res) {
 exports.course_details = function (req, res) {
     Course.findById(req.params.id, function (err, course) {
         if (err) return next(err);
+        update_statistics(course)
         res.send(course);
     })
 };
