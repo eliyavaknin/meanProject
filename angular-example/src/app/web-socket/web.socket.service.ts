@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-const BACKEND_URL = "http://localhost:1234/";
+const BACKEND_URL = "http://localhost:3000/";
 
 @Injectable({ providedIn: 'root' })
 export class WebSocketService {

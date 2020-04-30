@@ -8,8 +8,8 @@ import { Lesson } from '.././model/lesson';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
 };
-const coursesApiUrl = "http://localhost:1234/courses";
-const lessonsApiUrl = "http://localhost:1234/lessons";
+const coursesApiUrl = "http://localhost:3000/courses";
+const lessonsApiUrl = "http://localhost:3000/lessons";
 @Injectable({
   providedIn: 'root'
 })

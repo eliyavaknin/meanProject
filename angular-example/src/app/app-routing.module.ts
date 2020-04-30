@@ -44,11 +44,10 @@ const routes: Routes = [
     path: 'lesson-edit/:id',
     component: LessonEditComponent
   },
-  { path: 'chat', component: ChatComponent }
-
-
-
-
+  {
+    path: 'chat',
+    component: ChatComponent
+  }
 
 ];
 

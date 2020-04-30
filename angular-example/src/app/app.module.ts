@@ -30,6 +30,7 @@ import { LessonAddComponent } from './lesson-add/lesson-add.component';
 import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
 import { WebSocketModule } from './web-socket/web.socket.module';
+import { ChatComponent } from './web-socket/socket-io/chat.component';
 
 @NgModule({
   declarations: [
