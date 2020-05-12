@@ -10,7 +10,7 @@ import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonAddComponent } from './lesson-add/lesson-add.component';
 import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
 import { ChatComponent } from './web-socket/socket-io/chat.component';
-
+import { ScrapListComponent } from './scraps/scrap-list/scrap-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -47,8 +47,11 @@ const routes: Routes = [
   {
     path: 'chat',
     component: ChatComponent
+  },
+  {
+    path: 'scraps',
+    component: ScrapListComponent
   }
-
 ];
 
 @NgModule({

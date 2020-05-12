@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const course = require('./routes/course.route'); // Imports routes for the courses
 const lesson = require('./routes/lesson.route'); // Imports routes for the lessons
-
+const scrap = require('./routes/scrap.route');
 const app = express();
 
 mongoose.connect("mongodb://localhost:27017/mathematics")
@@ -45,5 +45,5 @@ app.use((req, res, next) => {
 });
 app.use('/courses', course);
 app.use('/lessons', lesson);
-
+app.use('/scraps', scrap);
 module.exports = app;
