@@ -2,18 +2,22 @@ const Course = require('../models/course.model');
 
 
 exports.create = function (req, res) {
+    console.log("_____________________________")
     let course = new Course({
         _id: req.body._id,
-        name: req.body.name,
+        title: req.body.title,
         description: req.body.description,
         image: req.body.image,
-        lessons: req.body.lessons
+        lessons: req.body.lessons,
+        comments: req.body.comments
+
     });
 
     course.save(function (err) {
         if (err) {
-            return next(err);
+            console.log(err);
         }
+        // res.send()
         res.send(course)
     })
 };
@@ -21,8 +25,13 @@ exports.create = function (req, res) {
 
 exports.course_details = function (req, res) {
     Course.findById(req.params.id, function (err, course) {
-        if (err) return next(err);
-        update_statistics(course)
+        console.log("_________________________0" + req.params.id)
+        if (err) {
+            console.log("___________________" + err)
+            return next(err);
+
+        }
+        // update_statistics(course)
         res.send(course);
     })
 };

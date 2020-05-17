@@ -1,6 +1,7 @@
 export class Course {
     _id: number;
-    name: string;
-    price: number;
-    description: string
+    title: string;
+    description: string;
+    lessons: [];
+    comments: [];
 }

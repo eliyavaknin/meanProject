@@ -27,3 +27,52 @@ exports.create = function (req, res) {
         }
     );
 };
+
+exports.update = function (req, res) {
+    let lesson = req.body.lesson
+    let courseId = req.body.courseId
+    console.log("\n>> Update courseId:\n", courseId);
+
+    return Course.findByIdAndUpdate(
+        courseId, {
+            $push: {
+                lessons: {
+                    _id: lesson._id,
+                    title: lesson.title,
+                    description: lesson.description,
+                    video: lesson.video
+                }
+            }
+        }, {
+            new: false,
+            useFindAndModify: true
+        },
+        function (err, course) {
+            if (err) return next(err);
+            res.send(course);
+        }
+    );
+};
+
+exports.delete = function (req, res) {
+    let lessonId = req.params.lessonId
+    let courseId = req.params.courseId
+    console.log("\n>> Delete courseId:\n", courseId);
+
+    return Course.findByIdAndUpdate(
+        courseId, {
+            $pull: {
+                "lessons": {
+                    id: lessonId
+                }
+            }
+        }, {
+            new: true,
+            useFindAndModify: false
+        },
+        function (err, course) {
+            if (err) return next(err);
+            res.send(course);
+        }
+    );
+};

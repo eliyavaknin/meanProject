@@ -10,7 +10,7 @@ import { Course } from '../model/course';
 })
 export class CoursesComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'price'];
+  displayedColumns: string[] = ['title', 'description'];
   data: Course[] = [];
   isLoadingResults = true;
 

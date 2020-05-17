@@ -11,25 +11,25 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 export class CourseAddComponent implements OnInit {
 
   courseForm: FormGroup;
-  name: string = '';
-  price: number = null;
+  title: string = '';
+  description: number = null;
   isLoadingResults = false;
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.courseForm = this.formBuilder.group({
-      'name': [null, Validators.required],
-      'price': [null, Validators.required],
+      'title': [null, Validators.required],
+      'description': [null, Validators.required],
     });
   }
   onFormSubmit(form: NgForm) {
     this.isLoadingResults = true;
     this.api.addCourse(form)
       .subscribe(res => {
-        let id = res['_id'];
+        // let id = res['_id'];
         this.isLoadingResults = false;
-        this.router.navigate(['/course-details', id]);
+        this.router.navigate(['/courses']);
       }, (err) => {
         console.log(err);
         this.isLoadingResults = false;

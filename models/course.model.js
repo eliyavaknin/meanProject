@@ -4,11 +4,12 @@ const Schema = mongoose.Schema;
 const Course = mongoose.model(
     "Course",
     new mongoose.Schema({
-        _id: String,
+        // _id: String,
         title: String,
         description: String,
         image: String,
-        lessons: []
+        lessons: [],
+        comments: []
     })
 );
 

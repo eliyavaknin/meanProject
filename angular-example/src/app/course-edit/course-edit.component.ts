@@ -12,8 +12,8 @@ export class CourseEditComponent implements OnInit {
 
   courseForm: FormGroup;
   _id: number = 0;
-  name: string = '';
-  price: number = null;
+  title: string = '';
+  description: number = null;
   isLoadingResults = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
@@ -21,8 +21,8 @@ export class CourseEditComponent implements OnInit {
   ngOnInit() {
     this.getCourse(this.route.snapshot.params['id']);
     this.courseForm = this.formBuilder.group({
-      'name': [null, Validators.required],
-      'price': [null, Validators.required]
+      'title': [null, Validators.required],
+      'description': [null, Validators.required]
     });
   }
 
@@ -30,8 +30,8 @@ export class CourseEditComponent implements OnInit {
     this.api.getCourse(id).subscribe(data => {
       this._id = data._id;
       this.courseForm.setValue({
-        name: data.name,
-        price: data.price
+        title: data.title,
+        description: data.description
       });
     });
   }

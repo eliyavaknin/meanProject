@@ -10,17 +10,18 @@
   <mat-card class="example-card">
     <form [formGroup]="courseForm" (ngSubmit)="onFormSubmit(courseForm.value)">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Course Name" formControlName="name">
+        <input matInput placeholder="{{title}}" formControlName="title">
         <mat-error>
-          <span *ngIf="!courseForm.get('name').valid && courseForm.get('name').touched">Please enter Course
+          <span *ngIf="!courseForm.get('title').valid && courseForm.get('title').touched">Please enter Course
             Name</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Course Price" formControlName="price">
+        <input matInput placeholder="{{description}}" formControlName="description">
         <mat-error>
-          <span *ngIf="!courseForm.get('price').valid && courseForm.get('price').touched">Please enter Course
-            Price</span>
+          <span *ngIf="!courseForm.get('description').valid && courseForm.get('description').touched">Please enter
+            Course
+            description</span>
         </mat-error>
       </mat-form-field>
       <div class="button-row">
