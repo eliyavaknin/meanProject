@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { Course } from '.././model/course';
 import { Lesson } from '.././model/lesson';
+import { LessonReq } from '../model/lessonReq';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
@@ -68,10 +69,10 @@ export class ApiService {
     );
   }
 
-  addLesson(lesson): Observable<Lesson> {
-    return this.http.post<Lesson>(lessonsApiUrl, lesson, httpOptions).pipe(
-      tap((lesson: Lesson) => console.log(`added Lesson w/ id=${lesson._id}`)),
-      catchError(this.handleError<Lesson>('addLesson'))
+  addLesson(lesson): Observable<LessonReq> {
+    return this.http.post<LessonReq>(lessonsApiUrl, lesson, httpOptions).pipe(
+      tap((lesson: LessonReq) => console.log(`added Lesson w/ }`)),
+      catchError(this.handleError<LessonReq>('addLesson'))
     );
   }
   getLesson(id: number): Observable<Lesson> {

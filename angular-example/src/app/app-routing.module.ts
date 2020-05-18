@@ -37,7 +37,7 @@ const routes: Routes = [
     component: LessonDetailComponent
   },
   {
-    path: 'lesson-add',
+    path: 'lesson-add/:courseId',
     component: LessonAddComponent
   },
   {

@@ -30,6 +30,11 @@
                   class="pull-right">{{lesson._id}}</span></li>
             </a>
           </ul>
+          <div class="button-row">
+            <a mat-flat-button color="primary" [routerLink]="['/lesson-add', course._id]">
+              <mat-icon>add lesson</mat-icon>
+            </a>
+          </div>
         </dd>
       </dl>
     </mat-card-content>

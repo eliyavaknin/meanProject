@@ -8,8 +8,8 @@ const lesson_controller = require('../controllers/lesson.controller');
 //create
 router.post('', lesson_controller.create);
 
-// //read
-// router.get('/:id', lesson_controller.course_details);
+//read
+// router.get('/:id', lesson_controller.lesson_details);
 
 // //read all
 // router.get('', lesson_controller.courses_details);

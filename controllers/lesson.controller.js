@@ -2,19 +2,21 @@ const Course = require('../models/course.model');
 const Lesson = require('../models/lesson.model');
 
 exports.create = function (req, res) {
-    let lesson = req.body.lesson
+    let title = req.body.title
+    let description = req.body.description
+
     let courseId = req.body.courseId
-    console.log("\n>> Add Lesson:\n", lesson);
+    // console.log("\n>> Add Lesson:\n", lesson);
     console.log("\n>> Add courseId:\n", courseId);
 
     return Course.findByIdAndUpdate(
         courseId, {
             $push: {
                 lessons: {
-                    _id: lesson._id,
-                    title: lesson.title,
-                    description: lesson.description,
-                    video: lesson.video
+                    // _id: lesson._id,
+                    title: title,
+                    description: description,
+                    // video: lesson.video
                 }
             }
         }, {
@@ -38,7 +40,7 @@ exports.update = function (req, res) {
             $push: {
                 lessons: {
                     _id: lesson._id,
-                    title: lesson.title,
+                    title: title,
                     description: lesson.description,
                     video: lesson.video
                 }
