@@ -4,13 +4,18 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { Course } from '.././model/course';
 import { Lesson } from '.././model/lesson';
+import { Comment } from '.././model/comment';
+
 import { LessonReq } from '../model/lessonReq';
+import { CommentReq } from '../model/commentReq';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
 };
 const coursesApiUrl = "http://localhost:3000/courses";
 const lessonsApiUrl = "http://localhost:3000/lessons";
+const commentApiUrl = "http://localhost:3000/comments";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,7 +44,7 @@ export class ApiService {
 
   getCourse(id: number): Observable<Course> {
     const url = `${coursesApiUrl}/${id}`;
-    return this.http.get<Course>(url).pipe(
+    return this.http.get<Course>(url, httpOptions).pipe(
       tap(_ => console.log(`fetched course id=${id}`)),
       catchError(this.handleError<Course>(`getCourse id=${id}`))
     );
@@ -77,16 +82,16 @@ export class ApiService {
   }
   getLesson(id: number): Observable<Lesson> {
     const url = `${lessonsApiUrl}/${id}`;
-    return this.http.get<Lesson>(url).pipe(
+    return this.http.get<Lesson>(url, httpOptions).pipe(
       tap(_ => console.log(`fetched lesson id=${id}`)),
       catchError(this.handleError<Lesson>(`getLesson id=${id}`))
     );
   }
-  deleteLesson(id): Observable<Lesson> {
-    const url = `${lessonsApiUrl}/${id}`;
+  deleteLesson(courseId, lessonId): Observable<Lesson> {
+    const url = `${lessonsApiUrl}/${courseId}/${lessonId}`;
 
     return this.http.delete<Lesson>(url, httpOptions).pipe(
-      tap(_ => console.log(`deleted Lesson id=${id}`)),
+      tap(_ => console.log(`deleted Lesson id=${lessonId}`)),
       catchError(this.handleError<Lesson>('deleteLesson'))
     );
   }
@@ -95,6 +100,35 @@ export class ApiService {
     return this.http.put(url, lesson, httpOptions).pipe(
       tap(_ => console.log(`updated Lesson id=${id}`)),
       catchError(this.handleError<any>('updateLesson'))
+    );
+  }
+
+  addComment(comment): Observable<CommentReq> {
+    return this.http.post<CommentReq>(commentApiUrl, comment, httpOptions).pipe(
+      tap((comment: CommentReq) => console.log(`added comment w/ }`)),
+      catchError(this.handleError<CommentReq>('addComment'))
+    );
+  }
+  getComment(id: number): Observable<Comment> {
+    const url = `${commentApiUrl}/${id}`;
+    return this.http.get<Comment>(url, httpOptions).pipe(
+      tap(_ => console.log(`fetched comment id=${id}`)),
+      catchError(this.handleError<Comment>(`getComment id=${id}`))
+    );
+  }
+  deleteComment(courseId, commentId): Observable<Comment> {
+    const url = `${commentApiUrl}/${courseId}/${commentId}`;
+
+    return this.http.delete<Comment>(url, httpOptions).pipe(
+      tap(_ => console.log(`deleted Comment id=${commentId}`)),
+      catchError(this.handleError<Comment>('deleteComent'))
+    );
+  }
+  updateComment(id, comment): Observable<any> {
+    const url = `${commentApiUrl}/${id}`;
+    return this.http.put(url, comment, httpOptions).pipe(
+      tap(_ => console.log(`updated Comment id=${id}`)),
+      catchError(this.handleError<any>('updateComent'))
     );
   }
 }

@@ -30,6 +30,9 @@ import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
 import { WebSocketModule } from './web-socket/web.socket.module';
 import { ChatComponent } from './web-socket/socket-io/chat.component';
+import { CommentAddComponent } from './comment-add/comment-add.component';
+import { CommentDetailComponent } from './comment-detail/comment-detail.component';
+import { CommentEditComponent } from './comment-edit/comment-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { ChatComponent } from './web-socket/socket-io/chat.component';
     CourseEditComponent,
     LessonAddComponent,
     LessonDetailComponent,
-    LessonEditComponent
+    LessonEditComponent,
+    CommentAddComponent,
+    CommentDetailComponent,
+    CommentEditComponent,
   ],
   imports: [
     BrowserModule,

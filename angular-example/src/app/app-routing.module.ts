@@ -11,6 +11,9 @@ import { LessonAddComponent } from './lesson-add/lesson-add.component';
 import { LessonEditComponent } from './lesson-edit/lesson-edit.component';
 import { ChatComponent } from './web-socket/socket-io/chat.component';
 import { ScrapListComponent } from './scraps/scrap-list/scrap-list.component';
+import { CommentDetailComponent } from './comment-detail/comment-detail.component';
+import { CommentAddComponent } from './comment-add/comment-add.component';
+import { CommentEditComponent } from './comment-edit/comment-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -43,6 +46,18 @@ const routes: Routes = [
   {
     path: 'lesson-edit/:id',
     component: LessonEditComponent
+  },
+  {
+    path: 'comment-details/:id',
+    component: CommentDetailComponent
+  },
+  {
+    path: 'comment-add/:courseId',
+    component: CommentAddComponent
+  },
+  {
+    path: 'comment-edit/:id',
+    component: CommentEditComponent
   },
   {
     path: 'chat',

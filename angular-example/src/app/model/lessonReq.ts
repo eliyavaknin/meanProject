@@ -1,7 +1,7 @@
 import { Lesson } from './lesson';
 
 export class LessonReq {
-    courseId: string;
+    courseId: number;
     title: String;
     description: String;
 

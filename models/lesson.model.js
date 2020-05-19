@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 const Lesson = mongoose.model(
     "Lesson",
     new mongoose.Schema({
-        // _id: String,
+        lesson_id: String,
+        _id: Number,
+
         title: String,
         description: String,
         video: String

@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { LessonReq } from '../model/lessonReq';
-import { Lesson } from '../model/lesson';
+import { CommentReq } from '../model/commentReq';
+// import { Comment } from '../model/comment';
 @Component({
-  selector: 'app-lesson-add',
-  templateUrl: './lesson-add.component.html',
-  styleUrls: ['./lesson-add.component.css']
+  selector: 'app-comment-add',
+  templateUrl: './comment-add.component.html',
+  styleUrls: ['./comment-add.component.css']
 })
-export class LessonAddComponent implements OnInit {
-  courseId: number;
-  lessonForm: FormGroup;
+export class CommentAddComponent implements OnInit {
+  courseId: string;
+  commentForm: FormGroup;
   title: string = '';
   description: string = null;
   isLoadingResults = false;
@@ -20,7 +20,7 @@ export class LessonAddComponent implements OnInit {
   ngOnInit(): void {
     this.courseId = this.route.snapshot.params['courseId']
 
-    this.lessonForm = this.formBuilder.group({
+    this.commentForm = this.formBuilder.group({
       'title': [null, Validators.required],
       'description': [null, Validators.required],
     });
@@ -33,15 +33,14 @@ export class LessonAddComponent implements OnInit {
     // lesson["title"] = ;
     // lesson["description"] = ;
     // const lesson: Lesson = { "title": this.title, "description": this.description }
-    const req: LessonReq = { "courseId": this.courseId, "title": form["title"], "description": form["description"] };
+    const req: CommentReq = { "courseId": this.courseId, "title": form["title"], "description": form["description"] };
     // req = {};
     // req.courseId = this.courseId;
     // req.lesson.title = this.title;
     // req.lesson.description = this.description;
 
 
-
-    this.api.addLesson(req)
+    this.api.addComment(req)
       .subscribe(res => {
         // let
         // id = res['_id'];

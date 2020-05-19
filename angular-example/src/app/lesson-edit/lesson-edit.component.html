@@ -11,17 +11,17 @@
   <mat-card class="example-card">
     <form [formGroup]="lessonForm" (ngSubmit)="onFormSubmit(lessonForm.value)">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Lesson Name" formControlName="title">
+        <input matInput placeholder="Lesson Title" formControlName="title" [(ngModel)]="lesson.title">
         <mat-error>
-          <span *ngIf="!lessonForm.get('title').valid && lessonForm.get('title').touched">Please enter Course
+          <span *ngIf="!lessonForm.get('title').valid && lessonForm.get('title').touched">Please enter Lesson
             Name</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Lesson Description" formControlName="description">
+        <input matInput placeholder="Lesson Description" formControlName="description" [(ngModel)]="lesson.description">
         <mat-error>
           <span *ngIf="!lessonForm.get('description').valid && lessonForm.get('description').touched">Please enter
-            Course
+            Lesson
             description</span>
         </mat-error>
       </mat-form-field>

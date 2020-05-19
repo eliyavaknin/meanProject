@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const Comment = mongoose.model(
     "Comment",
     new mongoose.Schema({
-        // _id: String,
+        _id: Number,
+        comment_id: String,
         title: String,
         description: String,
         author: String,
