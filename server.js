@@ -1,4 +1,4 @@
-const app = require('/math/MeanProject/app.js');
+const app = require('/yaelf/Personal/Studies/MeanProject/app.js');
 const debug = require('debug')('chatapp-backend:server');
 const http = require('http');
 
@@ -14,7 +14,7 @@ io.on('connection', (socket) => {
     socket.join(data.room);
     socket.broadcast.to(data.room).emit('new user joined', {
       user: data.user,
-      message: 'has joined the room'
+      message: 'new user has joined the room'
     });
   });
   socket.on('leave', (data) => {

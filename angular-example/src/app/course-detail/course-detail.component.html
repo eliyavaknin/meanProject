@@ -25,8 +25,9 @@
         <dd>
           <ul class="list-group col-lg-7 pull-right">
             <li class="list-group-item" *ngFor="let lesson of course.lessons"><span *ngIf="lesson.lessonId>1"
-                class="glyphicon glyphicon-lock pull-left"></span> <span class="pull-right">{{lesson._id}}</span>
+                class="glyphicon glyphicon-lock pull-left"></span>
               <a mat-flat-button [routerLink]="['/lesson-details', lesson._id]">{{lesson.title}}</a>
+              <label>{{lesson.description}}</label>
             </li>
 
           </ul>
@@ -44,9 +45,9 @@
         <dd>
           <ul class="list-group col-lg-7 pull-right">
             <li class="list-group-item" *ngFor="let comment of course.comments"><span *ngIf="comment.commentId>1"
-                class="glyphicon glyphicon-lock pull-left"></span>{{comment.title}} <span
-                class="pull-right">{{comment._id}}</span>
+                class="glyphicon glyphicon-lock pull-left"></span>
               <a mat-flat-button [routerLink]="['/comment-details', comment._id]">{{comment.title}}</a>
+              <label>{{comment.description}}</label>
 
             </li>
 

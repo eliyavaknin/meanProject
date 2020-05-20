@@ -18,7 +18,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   messageArray: Array<{ user: String, message: String }> = [];
   messageText: string;
   // userName: AuthData;
-  username = "bob";
+  username = "";
   userIsAuth = false;
   private authStateusSub: Subscription;
 
@@ -37,14 +37,14 @@ export class ChatComponent implements OnInit, OnDestroy {
 
 
   join() {
-    this.chatService.joinRoom({ user: "bob" });
+    this.chatService.joinRoom({ user: this.username});
   }
   leave() {
-    this.chatService.leaveRoom({ user: "bob" });
+    this.chatService.leaveRoom({ user: this.username });
   }
   sendMessage() {
     if (this.messageText !== '' && this.messageText != null) {
-      this.chatService.sendMessage({ user: "bob", message: this.messageText });
+      this.chatService.sendMessage({ user: this.username, message: this.messageText });
       this.messageText = '';
     }
   }

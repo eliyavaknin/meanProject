@@ -3,10 +3,11 @@
     <h2>Realtime Chat Application</h2>
     <hr>
   </div>
+  <input type="text" [(ngModel)]="this.username" placeholder="enter your chat name"/>
   <div class="row">
     <div class="col-sm-5">
       <div class="form-group">
-        <label><b>Connected as: </b>{{ this.username}}</label>
+        <label><b>Connected as: </b>{{this.username}}</label>
         <br><br> Chat:
       </div>
     </div>
