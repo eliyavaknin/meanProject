@@ -1,0 +1,22 @@
+
+
+
+/* .text_div{width: 100%;
+
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    font-size: larger;
+    font-family: Encode Sans Semi Expanded;
+} */
+
+.chart_style{width: 100%;
+    padding: 50px 50px;
+    margin: 8px 10px; 
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    font-size: larger;
+    font-family: Encode Sans Semi Expanded;
+}
+

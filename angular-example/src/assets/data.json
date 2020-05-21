@@ -1,0 +1,20 @@
+[
+	{
+		"letter": "Drawing",
+		"frequency": 50
+	},
+	{
+		"letter": "Photography",
+		"frequency": 20
+	},
+	{
+		"letter": "Design",
+		"frequency": 10
+	},
+	{
+		"letter": "Sewinng",
+		"frequency": 30
+	}
+
+	
+]
