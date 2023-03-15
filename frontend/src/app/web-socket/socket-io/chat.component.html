@@ -1,0 +1,45 @@
+
+<link href='https://fonts.googleapis.com/css?family=Encode Sans Semi Expanded' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="container-fluid">
+  <div class="row">
+    <p>Realtime Chat Application</p>
+    <hr>
+  </div>
+  <div class="row2"> <input type="text" [(ngModel)]="this.username" placeholder="enter your chat name"/></div>
+  <div class="row2">
+    <div class="col-sm-5">
+      <div class="form-group">
+        <label><b>Connected as: </b>{{this.username}}</label>
+        <br><br> Chat:
+      </div>
+    </div>
+
+    <div class="col sm-2">
+      <div style="margin-top:1px;" class="pull-right">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="well" style="height:400px; padding:15px;">
+      <div *ngFor="let item of messageArray">
+        <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10">
+     
+      <input type="text" class="w3-input w3-border" [(ngModel)]="messageText">
+    </div>
+
+    <div class="col-sm-2">
+      <button type="button" class="btn success" (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+

@@ -1,4 +1,4 @@
-const app = require('/yaelf/Personal/Studies/MeanProject/app.js');
+const app = require('/apps/MeanProject/app');
 const debug = require('debug')('chatapp-backend:server');
 const http = require('http');
 

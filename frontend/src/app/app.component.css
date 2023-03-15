@@ -1,0 +1,62 @@
+.container {
+  padding: 20px;
+}
+
+.container {
+  padding: 25px;
+}
+
+/* Green */
+.success {
+  color: white;
+  font-size: larger;
+  font-family: 'Encode Sans Semi Expanded';
+}
+
+.success:hover {
+  background-color: rgb(122, 103, 14);
+  color: white;
+  font-size: larger;
+  font-family: 'Encode Sans Semi Expanded';
+}
+
+/* Blue */
+.info {
+  color: white;
+  font-size: larger;
+  font-family: ''Encode Sans Semi Expanded'';
+}
+
+.info:hover {
+  background: rgb(122, 103, 14);
+  color: white;
+  font-size: larger;
+  font-family: ''Encode Sans Semi Expanded'';
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: x-large;
+  cursor: pointer;
+  display: inline-block;
+  color: blueviolet;
+  font-family: 'Encode Sans Semi Expanded';
+}
+
+/* Orange */
+.warning {
+  color: white;
+  font-size: larger;
+  font-family: ''Encode Sans Semi Expanded'';
+}
+
+.warning:hover {
+  background: rgb(122, 103, 14);
+  color: white;
+  font-size: larger;
+  font-family: ''Encode Sans Semi Expanded'';
+}
+
+

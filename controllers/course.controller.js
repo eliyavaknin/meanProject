@@ -59,3 +59,48 @@ exports.delete = function (req, res) {
         res.send();
     })
 };
+
+
+exports.groupByCategory = function (req, res) {
+    Course.aggregate(
+        [{
+            $group: {
+                _id: {
+                    category: "$category"
+                }
+            }
+        }],
+
+        function (err, result) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json(result);
+            }
+        }
+    );
+};
+
+
+
+
+
+exports.mapReduce = function (req, res) {
+    var o = {};
+    o.map = function () {
+        emit(this._id, 1)
+    }
+    o.reduce = function (k, vals) {
+        return vals.length
+    }
+
+    o.verbose = true;
+
+    Course.mapReduce(o, function (err, model, stats) {
+        console.log('map reduce took %d ms', stats.processtime)
+        console.log("MapReduce" + JSON.stringify(model));
+
+        res.send(model)
+
+    });
+};

@@ -1,0 +1,134 @@
+/* Structure */
+.example-container {
+    position: relative;
+    padding: 5px;
+  }
+  
+  .example-table-container {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-rate-limit-reached {
+    color: #980000;
+    max-width: 360px;
+    text-align: center;
+  }
+  
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+  
+  .mat-column-created {
+    max-width: 124px;
+  }
+  
+  .mat-flat-button {
+    margin: 5px;
+  }
+  .button-row{
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: x-large;
+    cursor: pointer;
+    display: inline-block;
+    color: blueviolet;
+    font-family: 'Encode Sans Semi Expanded';
+    font-size: 22px;
+  }
+  
+  
+  
+  div {
+    background: rgba(228, 235, 228, 0.959);
+    padding: 1%;
+  }
+  
+  div.first {
+    background: rgba(202, 241, 203, 0.959);
+  }
+  
+  div.second {
+    background: rgba(76, 175, 80, 0.3);
+  }
+  
+  div.third {
+    background: rgba(76, 175, 80, 0.6);
+  }
+  .container {
+    position: relative;
+    width: 50%;
+  }
+  
+  .image {
+    display: block;
+    width: 150%;
+    height: 150%;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 9.5px;
+    background-color: black;
+    overflow: hidden;
+    width: 47%;
+    height: 5%;
+    transition: .5s ease;
+  }
+  
+  .container:hover .overlay {
+    height: 100%;
+  }
+  
+  .text {
+    color: black;
+    font-size: large;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: left;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+
+  }
+  
+  /* Create three equal columns that sits next to each other */
+  .column {
+    flex: 33.33%;
+    padding: 10px;
+    
+  }
+  
+  
+  
+  

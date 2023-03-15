@@ -5,6 +5,7 @@ const Course = mongoose.model(
     "Course",
     new mongoose.Schema({
         // _id: String,
+        category: String,
         title: String,
         description: String,
         image: String,

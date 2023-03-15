@@ -24,4 +24,10 @@ router.put('/:id', course_controller.update);
 //delete
 router.delete('/:id', course_controller.delete);
 
+//groupByCategory
+router.delete('/groupByCategory', course_controller.groupByCategory);
+
+//mapReduceQuery
+router.delete('/mapReduce', course_controller.mapReduce);
+
 module.exports = router;

@@ -1,0 +1,73 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade" *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/courses']">
+      <mat-icon>list</mat-icon>
+    </a>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{course.title}}</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Course Description:</dt>
+        <dd>{{course.description}}</dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-content>
+      <dl>
+        <dt>Course Lessons:</dt>
+        <dd>
+          <ul class="list-group col-lg-7 pull-right">
+            <li class="list-group-item" *ngFor="let lesson of course.lessons"><span *ngIf="lesson.lessonId>1"
+                class="glyphicon glyphicon-lock pull-left"></span>
+              <a mat-flat-button [routerLink]="['/lesson-details', lesson._id]">{{lesson.title}}</a>
+              <label>{{lesson.description}}</label>
+            </li>
+
+          </ul>
+          <div class="button-row">
+            <a mat-flat-button color="primary" [routerLink]="['/lesson-add', course._id]">
+              <mat-icon>add lesson</mat-icon>
+            </a>
+          </div>
+        </dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-content>
+      <dl>
+        <dt>Course Comments:</dt>
+        <dd>
+          <ul class="list-group col-lg-7 pull-right">
+            <li class="list-group-item" *ngFor="let comment of course.comments"><span *ngIf="comment.commentId>1"
+                class="glyphicon glyphicon-lock pull-left"></span>
+              <a mat-flat-button [routerLink]="['/comment-details', comment._id]">{{comment.title}}</a>
+              <label>{{comment.description}}</label>
+
+            </li>
+
+
+          </ul>
+          <div class="button-row">
+            <a mat-flat-button color="primary" [routerLink]="['/comment-add', course._id]">
+              <mat-icon>add comment</mat-icon>
+            </a>
+          </div>
+        </dd>
+      </dl>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" [routerLink]="['/course-edit', course._id]">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a mat-flat-button color="warn" (click)="deleteCourse(course._id)">
+        <mat-icon>delete</mat-icon>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>

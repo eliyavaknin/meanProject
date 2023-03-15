@@ -8,7 +8,7 @@ const comment = require('./routes/comment.route'); // Imports routes for the les
 const scrap = require('./routes/scrap.route');
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/mathematics")
+mongoose.connect("mongodb+srv://shirel31:31shirel@cluster0.spez3.mongodb.net/mathematics?retryWrites=true&w=majority")
     .then(() => {
         console.log('Connected to database');
     }).catch(() => {
